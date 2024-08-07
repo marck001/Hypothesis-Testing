@@ -8,13 +8,14 @@ def plot_t_distribution(t_value, df, canvas_frame):
     y = stats.t.pdf(x, df)
 
     fig, ax = plt.subplots()
-    ax.plot(x, y, 'b-', label=f't-distribution df={df}')
+    ax.plot(x, y, 'b-', label=f't-distribution liberty points={df}')
     ax.fill_between(x, y, 0, where=(x >= t_value), color='red', alpha=0.5)
     ax.fill_between(x, y, 0, where=(x <= -t_value), color='red', alpha=0.5)
     ax.axvline(t_value, color='red', linestyle='dashed', linewidth=2, label=f't-value = {t_value:.4f}')
     ax.axvline(-t_value, color='red', linestyle='dashed', linewidth=2)
+    #ax.vlines(ymin=0,  color="blue", linestyle="--")
     ax.legend()
-    ax.set_title('t-distribution with Highlighted t-value')
+    ax.set_title('t-distribution with t-value')
 
     canvas = FigureCanvasTkAgg(fig, master=canvas_frame)
     canvas.draw()
