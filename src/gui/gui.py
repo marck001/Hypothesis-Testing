@@ -116,13 +116,4 @@ def create_gui():
     canvas_frame = tk.Frame(window)
     canvas_frame.pack()
     
-    
-  
-
-
-
-
-
-  
-
     return window
